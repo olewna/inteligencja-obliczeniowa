@@ -40,67 +40,53 @@ def fitness_func(solution, solution_idx):
     for i in solution:
         if jest_w_macierzy(start, odwiedzone) == False:
             odwiedzone.append(start)
+        else:
+            cofniecia += 1
+        if numpy.array_equal(start, koniec):
+            return 0-ruchy-uderzenia-cofniecia
 
         if i == 0:
             id = numpy.array([start[0], start[1]+1])
             next = S[id[0]][id[1]]
-            if numpy.array_equal(id, koniec):
-                return 20-ruchy-uderzenia-cofniecia
-            elif next == 0:
+            if next == 0:
                 start = id
                 ruchy += 1
-                if jest_w_macierzy(id, odwiedzone):
-                    cofniecia += 1
+
             else:
                 ruchy += 1
                 uderzenia += 1
-                if jest_w_macierzy(id, odwiedzone):
-                    cofniecia += 1
+
         if i == 1:
             id = numpy.array([start[0], start[1]-1])
             next = S[id[0]][id[1]]
-            if numpy.array_equal(id, koniec):
-                return 20-ruchy-uderzenia-cofniecia
-            elif next == 0:
+            if next == 0:
                 start = id
                 ruchy += 1
-                if jest_w_macierzy(id, odwiedzone):
-                    cofniecia += 1
             else:
                 ruchy += 1
                 uderzenia += 1
-                if jest_w_macierzy(id, odwiedzone):
-                    cofniecia += 1
+
         if i == 2:
             id = numpy.array([start[0]+1, start[1]])
             next = S[id[0]][id[1]]
-            if numpy.array_equal(id, koniec):
-                return 20-ruchy-uderzenia-cofniecia
-            elif next == 0:
+            if next == 0:
                 start = id
                 ruchy += 1
-                if jest_w_macierzy(id, odwiedzone):
-                    cofniecia += 1
+
             else:
                 ruchy += 1
                 uderzenia += 1
-                if jest_w_macierzy(id, odwiedzone):
-                    cofniecia += 1
+
         if i == 3:
             id = numpy.array([start[0]-1, start[1]])
             next = S[id[0]][id[1]]
-            if numpy.array_equal(id, koniec):
-                return 20-ruchy-uderzenia-cofniecia
-            elif next == 0:
+            if next == 0:
                 start = id
                 ruchy += 1
-                if jest_w_macierzy(id, odwiedzone):
-                    cofniecia += 1
             else:
                 ruchy += 1
                 uderzenia += 1
-                if jest_w_macierzy(id, odwiedzone):
-                    cofniecia += 1
+
     return -(abs(start[0]-koniec[0])+abs(start[1]-koniec[1])+uderzenia+cofniecia+ruchy)
 
 
@@ -133,7 +119,7 @@ num_genes = 30
 # ile pokolen
 # ilu rodzicow zachowac (kilka procent)
 num_parents_mating = 160
-num_generations = 500
+num_generations = 300
 keep_parents = 30
 
 # jaki typ selekcji rodzicow?
