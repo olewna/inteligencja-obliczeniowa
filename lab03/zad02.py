@@ -112,14 +112,14 @@ fitness_function = fitness_func
 
 # ile chromsomów w populacji
 # ile genow ma chromosom
-sol_per_pop = 320
+sol_per_pop = 500
 num_genes = 30
 
 # ile wylaniamy rodzicow do "rozmanazania" (okolo 50% populacji)
 # ile pokolen
 # ilu rodzicow zachowac (kilka procent)
-num_parents_mating = 160
-num_generations = 300
+num_parents_mating = 250
+num_generations = 800
 keep_parents = 30
 
 # jaki typ selekcji rodzicow?
